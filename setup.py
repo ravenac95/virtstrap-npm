@@ -7,8 +7,7 @@ setup(
     name='virtstrap-npm',
     version=version,
     description="A virtstrap plugin that installs node dependencies",
-    long_description="""\
-A virtstrap plugin that installs bundler's Gemfiles""",
+    long_description="""A virtstrap plugin that installs node packages""",
     classifiers=[],
     keywords='virtstrap ruby bundler virtualenv pip',
     author='Reuven V. Gonzales',
