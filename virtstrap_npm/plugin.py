@@ -26,5 +26,5 @@ def add_npm_bin_path(event, options, project=None, **kwargs):
         env_file_path = options.env_file
         env_file = open(env_file_path, 'a')
         env_file.write('\n# EXTEND PATH WITH NPM\n')
-        env_file.write('\nexport PATH="%s:$PATH"\n' % npm_bin_path)
+        env_file.write('export PATH="%s:$PATH"\n' % npm_bin_path)
         env_file.close()
