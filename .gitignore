@@ -45,6 +45,7 @@ downloads
 eggs
 parts
 dist
+.ropeproject
 
 #virtstrap
 quickactivate

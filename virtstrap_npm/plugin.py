@@ -21,8 +21,10 @@ def install_npm_packages(event, options, project=None, **kwargs):
 
 @hooks.create('environment', ['after'])
 def add_npm_bin_path(event, options, project=None, **kwargs):
-    env_file_path = options.env_file
-    env_file = open(env_file_path, 'a')
-    env_file.write('\n# EXTEND PATH WITH NPM\n')
-    env_file.write('\nexport PATH="/usr/local/heroku/bin:$PATH"\n')
-    env_file.close()
+    with in_directory(project.path()):
+        npm_bin_path = project.path('node_modules/.bin')
+        env_file_path = options.env_file
+        env_file = open(env_file_path, 'a')
+        env_file.write('\n# EXTEND PATH WITH NPM\n')
+        env_file.write('\nexport PATH="%s:$PATH"\n' % npm_bin_path)
+        env_file.close()
